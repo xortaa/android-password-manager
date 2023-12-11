@@ -32,4 +32,24 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, "PasswordData", null
         return cursor
     }
 
+    fun deletePassword(appName:String, username: String):Int {
+        val p0 = this.writableDatabase
+        val whereClause = "appName = ? AND username = ?"
+        val whereArgs = arrayOf(appName, username)
+
+        return p0.delete("PasswordDataList", whereClause, whereArgs)
+    }
+
+    fun updatePassword(appName:String, username:String, newPassword:String, newCategory:String):Int {
+        val p0 = this.writableDatabase
+        val cv = ContentValues()
+        cv.put("password", newPassword)
+        cv.put("category", newCategory)
+
+        val whereClause = "appName = ? AND username = ?"
+        val whereArgs = arrayOf(appName, username)
+
+        return p0.update("PasswordDataList", cv, whereClause, whereArgs)
+    }
+
 }

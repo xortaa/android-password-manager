@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.RadioGroup
 import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -22,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         val educationBtn = findViewById<Button>(R.id.educationBtn)
         val financeBtn = findViewById<Button>(R.id.financeBtn)
         val personalBtn = findViewById<Button>(R.id.personalBtn)
+        val toDeletePageBtn = findViewById<ImageButton>(R.id.toDeletePageBtn)
+        val updatePageBtn = findViewById<ImageButton>(R.id.updatePageBtn)
         db = DBHelper(this)
 
 
@@ -69,6 +72,23 @@ class MainActivity : AppCompatActivity() {
         addBtn.setOnClickListener() {
             toAddPage(it)
         }
+
+        fun toDeletePage(view: View) {
+            val i = Intent(this, DeletePage::class.java)
+            startActivity(i)
+        }
+        toDeletePageBtn.setOnClickListener() {
+            toDeletePage(it)
+        }
+
+        fun toUpdatePage(view: View) {
+            val i = Intent(this, UpdatePage::class.java)
+            startActivity(i)
+        }
+        updatePageBtn.setOnClickListener() {
+            toUpdatePage(it)
+        }
+
 
 
     }

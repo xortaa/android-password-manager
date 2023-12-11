@@ -8,9 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.RadioButton
 import android.widget.RadioGroup
-import android.widget.TextView
 import android.widget.Toast
 
 class AddPage : AppCompatActivity() {
@@ -48,16 +46,16 @@ class AddPage : AppCompatActivity() {
                 return@setOnClickListener
             }
             when (checkedRadioButtonId) {
-                R.id.socialMediaRadio -> {
+                R.id.updateSocialMediaRadio -> {
                     category = "socialMedia"
                 }
-                R.id.educationRadio -> {
+                R.id.updateEducationRadio -> {
                     category = "education"
                 }
-                R.id.financeRadio -> {
+                R.id.updateFinanceRadio -> {
                     category = "finance"
                 }
-                R.id.personalRadio -> {
+                R.id.updatePersonalRadio -> {
                     category = "personal"
                 }
             }
